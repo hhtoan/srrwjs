@@ -120,3 +120,4 @@ function waitLZFR() {
     setTimeout(1000, waitLZFR);
   }
 }
+waitLZFR();
