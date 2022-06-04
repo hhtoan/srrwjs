@@ -116,6 +116,7 @@ function waitLZFR() {
         };
       }
     };
+    console.log("lzfr modified");
   } else {
     setTimeout(1000, waitLZFR);
   }
