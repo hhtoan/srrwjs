@@ -95,7 +95,6 @@ function waitLZFR() {
             email: formData?.email,
           })
         );
-        debugger;
       } catch (error) {
         console.error("aimarketing_error GET FORM - ", error);
       }
