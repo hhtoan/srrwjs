@@ -122,7 +122,7 @@
       console.log("lzfr modified");
     } else {
       retry++;
-      setTimeout(1000, waitLZFR);
+      setTimeout(waitLZFR,1000);
     }
   }
   waitLZFR();
