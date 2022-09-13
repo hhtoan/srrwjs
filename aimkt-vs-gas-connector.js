@@ -1,13 +1,32 @@
 //client
-let formInputs = document.querySelectorAll("form input.lz-input");
-let formSubmit = document.querySelector("form input[type='submit'");
-
-function getFormValues(inputs) {
-  return Object.fromEntries(Array.from(inputs).map((e) => [e.name, e.value]));
-}
-formSubmit.addEventListener("click", () => {
-  window.formData = getFormValues(formInputs);
-});
+window.onload = () => {
+  let formInputs = document.querySelectorAll("form input.lz-input");
+  let formSubmit = document.querySelector("form input[type='submit'");
+  function getFormValues(inputs) {
+    let a = {};
+    Array.from(inputs)
+      .map((e) => [
+        e.name,
+        ((e.type == "text" ||
+          e.type == "textarea" ||
+          e.type == "date" ||
+          e.type == "select-one") &&
+          e.value) ||
+          ((e.type == "checkbox" || e.type == "radio") && e.checked && e.value),
+      ])
+      .filter((e) => e[1])
+      .forEach((e) => {
+        (a[e[0]] = a[e[0]] || ""), (a[e[0]] += e[1] + ",");
+      });
+    for (let i in a) {
+      a[i] = a[i].slice(0, a[i].length - 1);
+    }
+    return a;
+  }
+  formSubmit.addEventListener("click", () => {
+    window.formData = getFormValues(formInputs);
+  });
+};
 
 // form script
 (async (formData) => {
