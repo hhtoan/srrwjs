@@ -1,12 +1,12 @@
 (async () => {
-  let cookie = Object.fromEntries(
+  /* let cookie = Object.fromEntries(
     document.cookie.split(";").map((e) => e.split("=").map((e) => e.trim()))
   );
   if (!cookie.init) {
     document.cookie = `init=true; expires=${new Date()
       .addDays(1)
       .getDateOnly()
-      .toUTCString()}`;
+      .toUTCString()}`; */
     let data = {};
     data.x_name = localStorage.x_name;
     data.x_tenant_name = localStorage.x_tenant_name;
@@ -29,5 +29,5 @@
     };
     let googleSheetResponse = await fetch(GOOGLE_SCRIPT_API, option);
     console.log(await googleSheetResponse.json());
-  }
+  //}
 })();
