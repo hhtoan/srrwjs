@@ -1,4 +1,4 @@
-(async () => {
+window.onload = async () => {
   let cookie = Object.fromEntries(
     document.cookie.split(";").map((e) => e.split("=").map((e) => e.trim()))
   );
@@ -30,4 +30,4 @@
     let googleSheetResponse = await fetch(GOOGLE_SCRIPT_API, option);
     console.log(await googleSheetResponse.json());
   }
-})();
+}
