@@ -1,8 +1,8 @@
 (async () => {
-  /*let cookie = Object.fromEntries(
+  let cookie = Object.fromEntries(
     document.cookie.split(";").map((e) => e.split("=").map((e) => e.trim()))
-  );*/
-  if (true) {
+  );
+  if (!cookie.init) {
     document.cookie = `init=true; expires=${new Date()
       .addDays(1)
       .getDateOnly()
