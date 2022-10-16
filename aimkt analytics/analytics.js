@@ -15,17 +15,29 @@
     data.TransactionName = localStorage.TransactionName;
     data.x_tenant_id = localStorage.x_tenant_id;
     data.x_user_id = localStorage.x_user_id;
-    data.x_time_license = JSON.stringify(
-      await fetch(
-        "https://amisapp.misa.vn/aimkt/APIS/SystemAPI/api/licenses/report",
-        {
-          method: "GET",
+    data.x_time_license =
+      localStorage.x_time_license ||
+      JSON.stringify(
+        await fetch(
+          "https://amisapp.misa.vn/aimkt/APIS/SystemAPI/api/licenses/report",
+          {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+          }
+        ).then((e) => e.json())
+      );
+    data.apui_apps_opentime =
+      localStorage.apui_apps_opentime ||
+      JSON.stringify(
+        await fetch("https://amisapp.misa.vn/APIS/MiscAPI/api/monitor/aimkt", {
+          method: "POST",
           mode: "cors",
           credentials: "include",
-        }
-      ).then((e) => e.json())
-    );
-    data.apui_apps_opentime = localStorage.apui_apps_opentime;
+        })
+          .then((e) => e.json())
+          .then((e) => e.Data.RecentApps)
+      );
     data.x_tax_code = localStorage.x_tax_code;
     data.x_role_type = localStorage.x_role_type;
     const GOOGLE_SCRIPT_API =
