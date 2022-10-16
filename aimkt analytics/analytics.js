@@ -39,7 +39,7 @@
           .then((e) => e.json())
           .then((e) => e.Data.RecentApps)
       );
-    data.x_tax_code = localStorage.x_tax_code;
+    data.x_tax_code = localStorage.x_tax_code || "";
     data.x_role_type = localStorage.x_role_type;
     const GOOGLE_SCRIPT_API =
       "https://script.google.com/macros/s/AKfycbzixLUMmjvHe9HK9P7b2kQWZYXzsHF_v8YAfUnPPicpnpz45uQZ3IfA27eUmOGc1dmn/exec";
