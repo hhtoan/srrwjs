@@ -8,6 +8,7 @@
       .getDateOnly()
       .toUTCString()}`;
     let data = {};
+    data.timeStamp = new Date();
     data.x_name = localStorage.x_name;
     data.x_tenant_name = localStorage.x_tenant_name;
     data.x_email = localStorage.x_email;
