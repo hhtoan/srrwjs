@@ -2,7 +2,12 @@ const THIS_SPREADSHEET = SpreadsheetApp.getActiveSpreadsheet();
 let dailyEventSheet;
 function doPost(e) {
   let formData = JSON.parse(e.postData.contents);
-  writeToSheet(formData);
+  let lock = LockService.getScriptLock();
+  lock.tryLock(30000);
+  if (lock.hasLock()) {
+    writeToSheet(formData);
+  }
+  lock.releaseLock();
   return ContentService.createTextOutput(JSON.stringify(formData)).setMimeType(
     ContentService.MimeType.JSON
   );
