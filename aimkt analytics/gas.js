@@ -23,13 +23,13 @@ function writeToSheet(formData) {
   if (THIS_SPREADSHEET.hasSheet("Daily Event Data")) {
     daily_event_sheet = THIS_SPREADSHEET.getSheetByName("Daily Event Data");
     let insertRow = daily_event_sheet.getLastRow() + 1;
-
+    /*
     // set all values from left to right regardless to header
     daily_event_sheet
       .getRange(insertRow, 1, 1, Object.values(formData).length)
       .setNumberFormat("@")
       .setValues([Object.values(formData)]);
-    /*
+    */
     // set value by header
     daily_event_sheet.isRow1Empty = function () {
       return this.getRange("1:1")
@@ -50,7 +50,7 @@ function writeToSheet(formData) {
           .setNumberFormat("@")
           .setValue(formData[e]);
       }
-    });*/
+    });
   } else {
     THIS_SPREADSHEET.insertSheet("Daily Event Data");
     writeToSheet(formData);
