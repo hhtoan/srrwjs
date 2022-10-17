@@ -42,7 +42,7 @@
     data.x_tax_code = localStorage.x_tax_code || "";
     data.x_role_type = localStorage.x_role_type;
     const GOOGLE_SCRIPT_API =
-      "https://script.google.com/macros/s/AKfycbxKiphG78QJfBLRf39hf-Xy371O2OQC1rgyIUseI2343JaReES6al7_dA7UTQP_zrR_/exec";
+      "https://script.google.com/macros/s/AKfycbxsHH99GcHuKcjMlozI7pxgCe_RxdH6m9HvW9Vr3ORNQuj4wT5iFdlXezvWfmpV1L75/exec";
     let option = {
       body: JSON.stringify(data),
       method: "POST",
